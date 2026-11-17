@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jadwal Lab GLT</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Jadwal Lab GLT</h1>
+  <p id="label">Semester Ganjil 2026/2027</p>
+
+  <input id="cari" type="search" placeholder="Cari jam, dosen, prodi, mata kuliah">
+
+  <div id="hari"></div>
+  <div id="lab"></div>
+  <div id="daftar"></div>
+
+  <div class="catatan">
+    <b>Perhatian:</b> Jadwal ini mengacu pada jadwal praktikum resmi dari kampus.
+    Perubahan seperti jam pengganti dan jam kosong tidak tercantum.
+    Status “Tidak Ada Jadwal Tercantum” berarti tidak ada praktikum terjadwal,
+    bukan jaminan lab bisa dipakai.
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

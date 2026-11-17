@@ -1,0 +1,132 @@
+/* ===== Warna dan pengaturan dasar ===== */
+:root {
+  --bg: #ffffff;
+  --teks: #111111;
+  --abu: #6d787f;
+  --garis: #dbd7d7;
+  --utama: #254484;
+  --catatan-bg: #daf0fe;
+  --catatan-label: #1a5fd0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: 480px;
+  padding: 20px 16px 40px;
+  background: var(--bg);
+  color: var(--teks);
+  font: 500 14px/1.45 "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+h1 { margin: 0; font-size: 20px; font-weight: 700; }
+#label { margin: 2px 0 16px; font-size: 13px; color: var(--abu); }
+
+/* ===== Kolom cari (bentuk pil) ===== */
+#cari {
+  width: 100%;
+  padding: 11px 16px;
+  border: 1px solid var(--garis);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--teks);
+  font: inherit;
+  font-size: 13px;
+}
+
+/* ===== Baris chip hari dan lab ===== */
+#hari, #lab {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  overflow-x: auto;      /* bisa digeser ke samping di layar kecil */
+}
+
+.chip {
+  flex: 1 0 auto;
+  padding: 7px 14px;
+  border: 1px solid var(--garis);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--teks);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chip.kecil { flex: 0 0 auto; padding: 6px 14px; }
+.chip.aktif {
+  background: var(--utama);
+  border-color: var(--utama);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ===== Kartu jadwal ===== */
+#daftar { margin-top: 16px; }
+
+.kartu {
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--garis);
+  border-radius: 16px;
+}
+.kartu.sekarang {                 /* sesi yang sedang berlangsung */
+  border-color: var(--utama);
+  box-shadow: 0 0 0 1px var(--utama);
+}
+.baris1 {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--abu);
+}
+.matkul { margin: 4px 0 2px; font-size: 15px; font-weight: 700; }
+.dosen  { font-size: 13px; color: var(--abu); }
+
+.kosong {
+  padding: 26px 10px;
+  text-align: center;
+  color: var(--abu);
+  border: 1px dashed var(--garis);
+  border-radius: 16px;
+}
+.jumlah { margin-bottom: 8px; font-size: 12px; color: var(--abu); }
+
+/* ===== Kotak perhatian ===== */
+.catatan {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--catatan-bg);
+  font-size: 12.5px;
+}
+.catatan b { color: var(--catatan-label); }
+
+/* ===== Chip hari: 6 kolom sama lebar ===== */
+#hari {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  overflow-x: visible;
+}
+#hari .chip {
+  padding: 7px 0;
+  text-align: center;
+  font-size: 12.5px;
+}
+
+/* Layar HP yang sangat sempit */
+@media (max-width: 360px) {
+  #hari .chip { font-size: 11px; }
+}
+
+/* Sisakan tempat scrollbar supaya halaman tidak bergeser
+   saat jumlah kartu berubah */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Supaya atribut hidden benar-benar menyembunyikan elemen */
+[hidden] { display: none !important; }
